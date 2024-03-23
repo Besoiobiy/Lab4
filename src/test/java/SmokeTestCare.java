@@ -3,7 +3,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CarePage;
 
 public class SmokeTestCare {
@@ -13,7 +13,7 @@ public class SmokeTestCare {
     @Before
     public void precondition() {
 
-        browser = new EdgeDriver();
+        browser = new ChromeDriver();
         browser.manage().window().maximize();
         browser.get("https://mrkot.com/");
     }

@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.ShelterPage;
 
@@ -20,10 +20,10 @@ public class FuncTestShelter {
     @Before
     public void precondition() {
 
-        browser = new EdgeDriver();
+        browser = new ChromeDriver();
         browser.manage().window().maximize();
         browser.get("https://mrkot.com/");
-        browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
     @Test
