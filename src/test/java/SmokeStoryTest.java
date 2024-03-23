@@ -4,9 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.CarePage;
+import pages.StoryPage;
 
-public class SmokeTestCare {
+public class SmokeStoryTest {
 
     private WebDriver browser;
 
@@ -20,14 +20,14 @@ public class SmokeTestCare {
 
     @Test
     public void checkSiteSearcher() {
-        CarePage carePage = new CarePage(browser);
+        StoryPage storyPage = new StoryPage(browser);
 
-        String headerText = carePage
+        String headerText = storyPage
                 .clickInButtonField()
                 .getHeaderText();
         String assertionError = null;
         try {
-            Assert.assertEquals(headerText,"Уход за кошками");
+            Assert.assertEquals(headerText,"Истории");
         }
         catch (AssertionError ae) {
             assertionError = ae.toString();

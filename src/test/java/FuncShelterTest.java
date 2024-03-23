@@ -4,9 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.StoryPage;
+import pages.ShelterPage;
 
-public class SmokeTestStory {
+import java.time.Duration;
+
+public class FuncShelterTest {
 
     private WebDriver browser;
 
@@ -16,18 +18,25 @@ public class SmokeTestStory {
         browser = new ChromeDriver();
         browser.manage().window().maximize();
         browser.get("https://mrkot.com/");
+        browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
     @Test
     public void checkSiteSearcher() {
-        StoryPage storyPage = new StoryPage(browser);
-
-        String headerText = storyPage
-                .clickInButtonField()
+        ShelterPage shelterPage = new ShelterPage(browser);
+        //WebDriverWait wait = new WebDriverWait(browser,10);
+        String headerText = shelterPage
+                .clickShelterButton()
+                .clickYourChoiceButton()
+                .clickVoteSendButton()
+               // .withTimeout(Duration.ofSeconds(4))
+                .clickReVoteButton()
+               // .withTimeout(Duration.ofSeconds(4))
+                .clickOKButton()
                 .getHeaderText();
         String assertionError = null;
         try {
-            Assert.assertEquals(headerText,"Истории");
+            Assert.assertEquals(headerText,"Результаты");
         }
         catch (AssertionError ae) {
             assertionError = ae.toString();

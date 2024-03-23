@@ -4,9 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.BreedPage;
+import pages.DogPage;
 
-public class SmokeTestBreed {
+public class SmokeDogTest {
 
     private WebDriver browser;
 
@@ -20,14 +20,14 @@ public class SmokeTestBreed {
 
     @Test
     public void checkSiteSearcher() {
-        BreedPage breedPage = new BreedPage(browser);
+        DogPage dogPage = new DogPage(browser);
 
-        String headerText = breedPage
+        String headerText = dogPage
                 .clickInButtonField()
                 .getHeaderText();
         String assertionError = null;
         try {
-            Assert.assertEquals(headerText,"ПОРОДЫ >");
+            Assert.assertEquals(headerText,"Собаки");
         }
         catch (AssertionError ae) {
             assertionError = ae.toString();
